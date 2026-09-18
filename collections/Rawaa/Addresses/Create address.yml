@@ -28,10 +28,10 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        var res = res.getBody();
-        if (res && res.id) {
-            bru.setVar('addressId', res.id);
-            console.log('✅ addressId saved:', res.id);
+        var data = res.getBody();
+        if (res && data.id) {
+            bru.setVar('addressId', data.id);
+            console.log('✅ addressId saved:', data.id);
         } else {
             console.log('⚠️ No address id in response');
         }

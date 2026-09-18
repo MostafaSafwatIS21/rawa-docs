@@ -27,8 +27,8 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        var res = res.getBody();
-        if (res.resetToken) bru.setVar("resetToken", res.resetToken);
+        var data = res.getBody();
+        if (data.resetToken) bru.setVar("resetToken", data.resetToken);
 
 settings:
   encodeUrl: true

@@ -59,11 +59,11 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        var res = res.getBody();
-        if (!res.accessToken) { console.log('Login failed or no accessToken in response'); return; }
+        var data = res.getBody();
+        if (!data.accessToken) { console.log('Login failed or no accessToken in response'); return; }
 
-        var token = res.accessToken;
-        var role = res.user && res.user.role ? res.user.role : null;
+        var token = data.accessToken;
+        var role = data.user && data.user.role ? data.user.role : null;
 
         // Always store as the active bearer token
         bru.setVar('bearerToken', token);
@@ -83,8 +83,8 @@ runtime:
         }
 
         // Also store refresh token if present
-        if (res.refreshToken) {
-            bru.setVar('refreshToken', res.refreshToken);
+        if (data.refreshToken) {
+            bru.setVar('refreshToken', data.refreshToken);
         }
 
 settings:

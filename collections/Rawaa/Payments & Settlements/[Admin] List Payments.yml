@@ -29,7 +29,7 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        var res = res.getBody();
+        var data = res.getBody();
         if (Array.isArray(res) && res.length > 0) {
           bru.setVar('paymentId', res[0].id);
           console.log('✅ paymentId saved:', res[0].id);

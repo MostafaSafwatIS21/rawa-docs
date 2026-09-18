@@ -23,9 +23,9 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        var res = res.getBody();
+        var data = res.getBody();
         if (res.tapChargeId) bru.setVar('tapChargeId', res.tapChargeId);
-        if (res.paymentUrl) console.log('✅ Payment URL:', res.paymentUrl);
+        if (data.paymentUrl) console.log('✅ Payment URL:', data.paymentUrl);
 
 settings:
   encodeUrl: true
