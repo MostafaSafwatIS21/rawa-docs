@@ -1,0 +1,16 @@
+name: prod
+variables:
+  - name: base_url
+    value: https://api.rawaa-app.com/api
+  - name: bearerToken
+    value: gfdg
+  - name: vendorToken
+    value: dfggdf
+  - name: refreshToken
+    value: ""
+  - name: domain_url
+    value: ""
+  - name: customerToken
+    value: ""
+  - name: addressId
+    value: ""
