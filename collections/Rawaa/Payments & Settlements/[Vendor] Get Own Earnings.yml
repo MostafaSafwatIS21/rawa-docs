@@ -1,0 +1,19 @@
+info:
+  name: "[Vendor] Get Own Earnings"
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{base_url}}/vendor/earnings"
+  headers:
+    - name: Authorization
+      value: Bearer {{vendor_token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

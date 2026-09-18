@@ -1,0 +1,25 @@
+info:
+  name: "[ A ] Force Cancel Subscription"
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{base_url}}/admin/subscriptions/{{subscriptionId}}/cancel"
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Admin / Super Admin
+
+  Force-cancels any subscription regardless of its current status or owner.
+
+  Sets `status = cancelled` and `cancelledAt = now()`. **Irreversible.**

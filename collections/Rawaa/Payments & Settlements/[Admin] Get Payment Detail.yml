@@ -1,0 +1,23 @@
+info:
+  name: "[Admin] Get Payment Detail"
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{base_url}}/admin/payments/{{paymentId}}"
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Admin
+
+  Fetches full detail for a single payment record including split amounts and refund info.

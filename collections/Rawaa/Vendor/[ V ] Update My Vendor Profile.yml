@@ -1,0 +1,62 @@
+info:
+  name: "[ V ] Update My Vendor Profile"
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{base_url}}/vendors/me"
+  headers:
+    - name: Authorization
+      value: Bearer {{vendor_access_token}}
+  body:
+    type: multipart-form
+    data:
+      - name: storeName
+        type: text
+        value: My Updated Store
+        description: (optional)
+      - name: description
+        type: text
+        value: Updated description for my store
+        description: (optional)
+        disabled: true
+      - name: city
+        type: text
+        value: Riyadh
+        description: (optional) Must be a valid Saudi city enum value
+        disabled: true
+      - name: latitude
+        type: text
+        value: "24.7136"
+        description: (optional)
+        disabled: true
+      - name: longitude
+        type: text
+        value: "46.6753"
+        description: (optional)
+        disabled: true
+      - name: logo
+        type: file
+        value: []
+        description: (optional) New store logo image
+        disabled: true
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  Update the authenticated vendor's own profile.
+
+  All fields are optional — only send the ones you want to change.
+
+  **Requires:** `VENDOR` role JWT in Authorization header.
+
+  **Note:** Store name uniqueness is enforced. The old logo is automatically deleted from storage when a new one is uploaded.

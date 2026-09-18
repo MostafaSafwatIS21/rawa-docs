@@ -1,0 +1,34 @@
+info:
+  name: Step 1 - Account Creation
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/vendors/register/step1"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "identifier": "vendor@example.com",
+        "password": "password123",
+        "ownerName": "John Doe",
+        "storeName": "My Awesome Store",
+        "description": "A great store",
+        "city": "Riyadh",
+        "latitude": 24.7136,
+        "longitude": 46.6753,
+        "crNumber": "1234567890",
+        "iban": "SA12345678901234567890"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

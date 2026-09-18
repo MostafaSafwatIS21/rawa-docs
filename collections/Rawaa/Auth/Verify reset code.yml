@@ -1,0 +1,38 @@
+info:
+  name: Verify reset code
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/forgot-password/verify"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      // {
+      //   "identifier": "mostafa.safwat.is.fcai@gmail.com",
+      //   "code": "322019"
+      // }
+
+      {
+        "identifier": "mohamed135hamdy@gmail.com",
+        "code": "140502"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var res = res.getBody();
+        if (res.resetToken) bru.setEnvVar("resetToken", res.resetToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,11 @@
+info:
+  name: Payments & Settlements
+  type: folder
+  seq: 10
+
+request:
+  auth: inherit
+
+docs:
+  content: Tap Marketplaces payment flows — customer initiation, admin management, and webhook handlers.
+  type: text/markdown

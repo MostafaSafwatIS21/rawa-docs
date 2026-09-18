@@ -1,0 +1,30 @@
+info:
+  name: Delete Offer
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/offer-products/:offerId"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: offerId
+      value: 53b686a9-2f5f-4b77-a9db-2a291ca784c0
+      type: path
+  body:
+    type: json
+    data: "{\r
+
+      \    \"name\": \"Summer Compo\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

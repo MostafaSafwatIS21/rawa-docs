@@ -1,0 +1,60 @@
+info:
+  name: Get catalog products
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/catalog-product"
+  params:
+    - name: search
+      value: NoMa
+      type: query
+      disabled: true
+    - name: brandId
+      value: <string>
+      type: query
+      disabled: true
+    - name: minVolume
+      value: <number>
+      type: query
+      disabled: true
+    - name: maxVolume
+      value: <number>
+      type: query
+      disabled: true
+    - name: sortOrder
+      value: DESC
+      type: query
+      description: " (This can only be one of ASC,DESC)"
+      disabled: true
+    - name: sortBy
+      value: name
+      type: query
+      description: " (This can only be one of name,createdAt,updatedAt)"
+      disabled: true
+    - name: limit
+      value: <number>
+      type: query
+      disabled: true
+    - name: page
+      value: <number>
+      type: query
+      disabled: true
+  body:
+    type: multipart-form
+    data:
+      - name: search
+        type: text
+        value: NoMa
+        disabled: true
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,29 @@
+info:
+  name: "[ A ] Create size"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/package-sizes"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: multipart-form
+    data:
+      - name: volume
+        type: text
+        value: "500"
+      - name: sizeImage
+        type: file
+        value:
+          - postman-cloud:///1f17d48f-d38e-4e40-aa23-3a4f35f21d09
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

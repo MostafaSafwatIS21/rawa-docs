@@ -1,0 +1,36 @@
+info:
+  name: "[ A ] Update Size"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/package-sizes/:id"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: id
+      value: cb40ab55-4b66-4a08-936f-920f83be15c5
+      type: path
+      description: "(Required) "
+  body:
+    type: multipart-form
+    data:
+      - name: size
+        type: text
+        value: "250"
+      - name: image
+        type: file
+        value:
+          - /C:/Users/Mohamed Hamada/OneDrive/Desktop/3.png
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

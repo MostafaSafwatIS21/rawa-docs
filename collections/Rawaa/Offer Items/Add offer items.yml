@@ -1,0 +1,32 @@
+info:
+  name: Add offer items
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/offer-products/:offerId/items"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: offerId
+      value: c904e05f-f98f-444d-82a0-33d3f6623130
+      type: path
+  body:
+    type: json
+    data: "{\r
+
+      \    \"vendorProductId\": \"527a08e9-48e5-4813-9e04-5a1889cfe65a\",\r
+
+      \    \"quantity\": 2\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

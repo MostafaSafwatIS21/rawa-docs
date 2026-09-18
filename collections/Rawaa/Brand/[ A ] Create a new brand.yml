@@ -1,0 +1,30 @@
+info:
+  name: "[ A ] Create a new brand"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/brands"
+  headers:
+    - name: Content-Type
+      value: multipart/form-data
+  body:
+    type: multipart-form
+    data:
+      - name: name
+        type: text
+        value: Nestle-ar
+        description: "(Required) "
+      - name: logo
+        type: file
+        value:
+          - postman-cloud:///1f17d48f-d38e-4e40-aa23-3a4f35f21d09
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

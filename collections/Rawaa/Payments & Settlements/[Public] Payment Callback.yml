@@ -1,0 +1,25 @@
+info:
+  name: "[Public] Payment Callback"
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/payments/callback?tap_id={{tapChargeId}}"
+  params:
+    - name: tap_id
+      value: "{{tapChargeId}}"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Public** — no JWT required.
+
+  Tap redirects the customer here after the payment page. Verifies charge status via Tap API and returns `{ status, message }`. Does **not** update the DB (webhook is the source of truth).

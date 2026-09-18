@@ -1,0 +1,49 @@
+info:
+  name: Create address
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/addresses"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "street": "King Abdulaziz Road",
+          "city": "Riyadh",
+          "description": "Near the National Museum, opposite the main gate",
+          "isDefault": true, // this is optional
+          "latitude": 30.5,
+          "longitude": 29.4
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var res = res.getBody();
+        if (res && res.id) {
+            bru.setEnvVar('addressId', res.id);
+            console.log('✅ addressId saved:', res.id);
+        } else {
+            console.log('⚠️ No address id in response');
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Creates a new delivery address and saves `addressId` to the environment variables.

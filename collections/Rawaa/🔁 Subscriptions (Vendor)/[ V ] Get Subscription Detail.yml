@@ -1,0 +1,25 @@
+info:
+  name: "[ V ] Get Subscription Detail"
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/vendor/subscriptions/{{subscriptionId}}"
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Vendor only
+
+  Returns subscription detail **plus** an `upcomingDates` array containing the next 3 scheduled delivery dates (computed on-the-fly from `nextRunDate` and `frequency` — no pre-generated rows).
+
+  Useful for the vendor dashboard "متابعة الطلبات القادمة" (upcoming orders) view.

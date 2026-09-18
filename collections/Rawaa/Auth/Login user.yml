@@ -1,0 +1,105 @@
+info:
+  name: Login user
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/login"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |+
+      // {
+      //   "identifier": "0tarek44tarek@gmail.com",
+      //   "password": "Pass1234"
+      // }
+      // {
+      //   "identifier": "mohamed135hamdy@gmail.com",
+      //   "password": "Pass12345"
+      // }
+      // {
+      //     "identifier":"mostafa.is1242003@gmail.com",
+      //     "password":"Pass12345"
+      // }
+      // {
+      //     "identifier":"admin@rawaa.example.com",
+      //     "password":"Rawaa@12345"
+      // }
+      // --------------------- Vendor Accounts ---------------------
+      {
+          "identifier":"nada.alshammari@rawaa-vendors.example.com",
+          "password":"Rawaa@12345"
+      }
+      // {
+      //     "identifier":"mo@gmail.com",
+      //     "password":"Pass@12345"
+      // }
+      // -----------------------Customer Accounts _________
+      // {
+      //     "identifier":"omar.fahad@rawaa-customers.example.com",
+      //     "password":"Rawaa@12345"
+      // }
+      // ----------------------- Admin Account -----------------------
+      // {
+      //     "identifier": "super.admin@rawa.com",
+      //     "password": "Rawaa@12345"
+      // }
+
+
+
+
+
+
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var res = res.getBody();
+        if (!res.accessToken) { console.log('Login failed or no accessToken in response'); return; }
+
+        var token = res.accessToken;
+        var role = res.user && res.user.role ? res.user.role : null;
+
+        // Always store as the active bearer token
+        bru.setEnvVar('bearerToken', token);
+
+        // Also store by role
+        if (role === 'admin') {
+            bru.setEnvVar('adminToken', token);
+            console.log('✅ adminToken saved');
+        } else if (role === 'vendor') {
+            bru.setEnvVar('vendorToken', token);
+            console.log('✅ vendorToken saved');
+        } else if (role === 'customer') {
+            bru.setEnvVar('customerToken', token);
+            console.log('✅ customerToken saved');
+        } else {
+            console.log('⚠️ Unknown role:', role, '- only bearerToken was set');
+        }
+
+        // Also store refresh token if present
+        if (res.refreshToken) {
+            bru.setEnvVar('refreshToken', res.refreshToken);
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  Unified login for all user types (customer, vendor, admin).
+
+  For vendors: the response includes a `vendorStatus` field with `approvalStatus` and, if rejected, `rejectionReason`.
+
+  **Vendor approvalStatus values:**
+  - `PENDING` — waiting for admin review
+  - `APPROVED` — full access
+  - `REJECTED` — can only access the resubmit endpoint

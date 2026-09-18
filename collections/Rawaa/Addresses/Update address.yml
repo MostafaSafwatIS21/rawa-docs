@@ -1,0 +1,35 @@
+info:
+  name: Update address
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/addresses/{{addressId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "street": "Tahlia Street",
+        "city": "Jeddah",
+        "description": "Beside the famous shopping mall, second building on the right",
+        "isDefault": true
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Updates an existing address. If `isDefault` is set to true, it automatically unsets default status of other addresses for the user.

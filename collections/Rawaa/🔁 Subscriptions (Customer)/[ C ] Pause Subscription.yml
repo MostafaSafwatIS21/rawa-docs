@@ -1,0 +1,25 @@
+info:
+  name: "[ C ] Pause Subscription"
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/subscriptions/{{subscriptionId}}/pause"
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Pauses the subscription. The daily cron will skip it while paused (status filter: `active` only).
+
+  Sets `status = paused` and `pausedAt = now()`.

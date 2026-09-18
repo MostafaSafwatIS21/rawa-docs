@@ -1,0 +1,27 @@
+info:
+  name: "[Admin] Mark Settlement Paid"
+  type: http
+  seq: 11
+
+http:
+  method: PATCH
+  url: "{{base_url}}/admin/settlements/{{settlementId}}/mark-paid"
+  headers:
+    - name: Authorization
+      value: Bearer {{admin_token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "transferReference": "TRF-20250801-00123"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

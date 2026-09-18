@@ -1,0 +1,19 @@
+info:
+  name: Deactivate profile
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{base_url}}/customers/me/deactivate"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

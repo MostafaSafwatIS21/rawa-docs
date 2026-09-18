@@ -1,0 +1,16 @@
+name: prod
+variables:
+  - name: base_url
+    value: ""
+  - name: bearerToken
+    value: ""
+  - name: vendorToken
+    value: ""
+  - name: refreshToken
+    value: ""
+  - name: domain_url
+    value: ""
+  - name: customerToken
+    value: ""
+  - name: addressId
+    value: ""

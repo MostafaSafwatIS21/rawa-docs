@@ -1,0 +1,28 @@
+info:
+  name: "[ C ] Resume Subscription"
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/subscriptions/{{subscriptionId}}/resume"
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Resumes a **paused** subscription.
+
+  - If `nextRunDate` has passed while paused, it is automatically advanced to the next valid date from today.
+  - If `nextRunDate` is still in the future, it is kept as-is.
+
+  ❌ Throws 400 if subscription is not paused.

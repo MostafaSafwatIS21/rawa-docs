@@ -1,0 +1,33 @@
+info:
+  name: "[ A ] Update brand"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/brands/:id"
+  headers:
+    - name: Content-Type
+      value: multipart/form-data
+  params:
+    - name: id
+      value: <string>
+      type: path
+      description: "(Required) "
+  body:
+    type: multipart-form
+    data:
+      - name: name
+        type: text
+        value: <string>
+      - name: logo
+        type: file
+        value: []
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

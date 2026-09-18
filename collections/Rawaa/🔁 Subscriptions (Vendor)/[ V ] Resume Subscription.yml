@@ -1,0 +1,27 @@
+info:
+  name: "[ V ] Resume Subscription"
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/vendor/subscriptions/{{subscriptionId}}/resume"
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Vendor only
+
+  Resumes a paused subscription on behalf of the vendor.
+
+  - Advances `nextRunDate` if it passed while paused.
+
+  Emits `subscription.resumed` event with `changedBy = 'vendor'`.

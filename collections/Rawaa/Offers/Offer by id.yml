@@ -1,0 +1,26 @@
+info:
+  name: Offer by id
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/offer-products/:offerId"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: offerId
+      value: 4f0f0a4d-2ade-4f40-9c27-04038cd64434
+      type: path
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

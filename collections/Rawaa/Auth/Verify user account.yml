@@ -1,0 +1,31 @@
+info:
+  name: Verify user account
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/verify"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      // {
+      //   "identifier": "mostafa.safwat.is.fcai@gmail.com",
+      //   "code": "340087"
+      // }
+
+      {
+        "identifier": "mo@gmail.com",
+        "code": "287138"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

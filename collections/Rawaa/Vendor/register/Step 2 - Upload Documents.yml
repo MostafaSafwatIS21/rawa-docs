@@ -1,0 +1,31 @@
+info:
+  name: Step 2 - Upload Documents
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/vendors/register/step2"
+  headers:
+    - name: Authorization
+      value: Bearer YOUR_REGISTRATION_TOKEN_HERE
+  body:
+    type: multipart-form
+    data:
+      - name: crDocument
+        type: file
+        value: []
+      - name: nationalIdDocument
+        type: file
+        value: []
+      - name: logo
+        type: file
+        value: []
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

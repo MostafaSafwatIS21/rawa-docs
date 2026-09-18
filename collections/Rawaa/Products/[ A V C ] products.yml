@@ -1,0 +1,51 @@
+info:
+  name: "[ A V C ] products"
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/products"
+  params:
+    - name: brandId
+      value: 5e66420d-ca43-4288-8485-ccbe1672998f
+      type: query
+      disabled: true
+    - name: packageVolume
+      value: "500"
+      type: query
+      disabled: true
+    - name: packageSizeId
+      value: 5f271ffe-b02c-4804-b897-5a432553fb4f
+      type: query
+      disabled: true
+    - name: page
+      value: "2"
+      type: query
+      disabled: true
+    - name: sortBy
+      value: createdAt
+      type: query
+      disabled: true
+    - name: sortOrder
+      value: DESC
+      type: query
+      disabled: true
+    - name: limit
+      value: "10"
+      type: query
+      disabled: true
+    - name: vendorId
+      value: a37bf551-d3fd-4cbd-ae12-816c28caa557
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,24 @@
+info:
+  name: Admin - Toggle Vendor Active Status
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/admins/vendors/:id/toggle-active"
+  params:
+    - name: id
+      value: vendor_uuid_here
+      type: path
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: Toggles a vendor profile's active status (enables or disables the store and its listings).

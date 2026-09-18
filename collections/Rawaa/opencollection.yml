@@ -1,0 +1,42 @@
+opencollection: 1.0.0
+
+info:
+  name: Rawaa
+
+request:
+  auth:
+    type: bearer
+    token: "{{token}}"
+  variables:
+    - name: base_url
+      value: http://localhost:3000
+    - name: bearerToken
+      value: ""
+    - name: adminToken
+      value: ""
+    - name: vendorToken
+      value: ""
+    - name: customerToken
+      value: ""
+    - name: refreshToken
+      value: ""
+    - name: orderId
+      value: ""
+    - name: addressId
+      value: ""
+    - name: paymentId
+      value: ""
+    - name: tapChargeId
+      value: ""
+    - name: vendorId
+      value: ""
+    - name: subscriptionId
+      value: ""
+    - name: vendorProductId
+      value: ""
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

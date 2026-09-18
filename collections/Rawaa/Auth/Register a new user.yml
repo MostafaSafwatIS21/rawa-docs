@@ -1,0 +1,47 @@
+info:
+  name: Register a new user
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/register"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |+
+      // {
+      //   "identifier": "teytytyu@gmail.com",// or +201556644984
+      //   "password": "Pass12345",
+      //   "confirmPassword": "Pass12345",
+      //   "fullName": "Mostafa Safwat"
+      // }
+
+
+      // {
+      //   "identifier": "mohamed135hamdy@gmail.com",
+      //   "password": "Pass12345",
+      //   "confirmPassword": "Pass12345",
+      //   "fullName": "Mohamed Hamdy"
+      // }
+
+      {
+          "identifier": "mostafa.is1242003@gmail.com",
+          "password": "Pass12345",
+          "confirmPassword": "Pass12345",
+          "fullName": "Customer"
+      }
+
+
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

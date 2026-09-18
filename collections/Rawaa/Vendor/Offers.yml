@@ -1,0 +1,20 @@
+info:
+  name: Offers
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{base_url}}/vendors/:vendorId/offers"
+  params:
+    - name: vendorId
+      value: 85846aa4-8332-4e6d-897c-f19be39ecbd6
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

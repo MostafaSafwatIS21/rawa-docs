@@ -1,0 +1,20 @@
+info:
+  name: Mark Single as Read
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{baseUrl}}/api/notifications/:id/read"
+  params:
+    - name: id
+      value: uuid-here
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

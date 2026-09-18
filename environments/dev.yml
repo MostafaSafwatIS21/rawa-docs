@@ -1,0 +1,22 @@
+name: dev
+variables:
+  - name: base_url
+    value: ""
+  - name: bearerToken
+    value: ""
+  - name: refreshToken
+    value: ""
+  - name: vendorToken
+    value: ""
+  - name: customerToken
+    value: ""
+  - name: addressId
+    value: ""
+  - name: domain_url
+    value: ""
+  - name: registrationToken
+    value: ""
+  - name: adminToken
+    value: ""
+  - name: orderId
+    value: ""

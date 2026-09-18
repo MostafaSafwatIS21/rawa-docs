@@ -1,0 +1,24 @@
+info:
+  name: Remove FCM Device Token
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/notifications/device-tokens/:token"
+  params:
+    - name: token
+      value: fcm-token-xyz-123
+      type: path
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: Remove the token (call this on logout).

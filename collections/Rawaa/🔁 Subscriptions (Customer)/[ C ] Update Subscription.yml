@@ -1,0 +1,41 @@
+info:
+  name: "[ C ] Update Subscription"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/subscriptions/{{subscriptionId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "quantity": 3,
+        "addressId": "{{addressId}}"
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Updates an **active** or **paused** subscription.
+
+  **Allowed changes:**
+  - `quantity` — new quantity ≥ 1
+  - `addressId` — new delivery address (must belong to the customer)
+  - `frequency` — changing this **recalculates nextRunDate from today** (not from original startDate)
+  - `customIntervalDays` — required if changing frequency to `custom_days`
+
+  ❌ Cannot edit a **cancelled** subscription.

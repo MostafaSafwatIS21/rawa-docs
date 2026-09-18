@@ -1,0 +1,18 @@
+info:
+  name: Logout user
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/logout"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

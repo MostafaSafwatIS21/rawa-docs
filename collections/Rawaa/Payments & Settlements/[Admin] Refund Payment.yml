@@ -1,0 +1,23 @@
+info:
+  name: "[Admin] Refund Payment"
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/payments/{{paymentId}}/refund"
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Admin
+
+  Manually triggers a refund for a paid payment via Tap API. Payment status must be `paid`. Tap automatically reverses the vendor split.

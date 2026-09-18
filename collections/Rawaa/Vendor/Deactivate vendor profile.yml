@@ -1,0 +1,21 @@
+info:
+  name: Deactivate vendor profile
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: "{{base_url}}/vendors/:id"
+  params:
+    - name: id
+      value: <string>
+      type: path
+      description: "(Required) "
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

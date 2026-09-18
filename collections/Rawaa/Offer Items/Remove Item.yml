@@ -1,0 +1,23 @@
+info:
+  name: Remove Item
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: "{{base_url}}/offer-products/:offerId/items/:itemId"
+  params:
+    - name: offerId
+      value: c904e05f-f98f-444d-82a0-33d3f6623130
+      type: path
+    - name: itemId
+      value: 0f6d1d60-0dcf-4593-8990-e3855bea8038
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

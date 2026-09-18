@@ -1,0 +1,40 @@
+info:
+  name: "[ V ] List Vendor Subscriptions"
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/vendor/subscriptions?page=1&limit=10"
+  params:
+    - name: status
+      value: active
+      type: query
+      disabled: true
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Vendor only
+
+  Returns all subscriptions for the authenticated vendor's store.
+
+  **Query params:**
+  - `status` *(optional)* — `active` | `paused` | `cancelled`
+  - `page` / `limit` — pagination
+
+  Vendor only sees subscriptions where `vendorId` matches their JWT.

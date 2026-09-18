@@ -1,0 +1,30 @@
+info:
+  name: Resubmit Vendor
+  type: http
+  seq: 2
+
+http:
+  method: PATCH
+  url: "{{base_url}}/vendors/resubmit"
+  body:
+    type: multipart-form
+    data:
+      - name: storeName
+        type: text
+        value: Mostafa Store Updated
+      - name: crDocument
+        type: file
+        value:
+          - ""
+          - /home/msafwat/Downloads/rawaa_vendor_shipping_report.pdf
+        disabled: true
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

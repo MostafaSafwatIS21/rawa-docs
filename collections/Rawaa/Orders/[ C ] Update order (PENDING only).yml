@@ -1,0 +1,40 @@
+info:
+  name: "[ C ] Update order (PENDING only)"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/orders/{{orderId}}"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "items": [
+          {
+            "productId": "<vendorProductId>",
+            "quantity": 3
+          }
+        ],
+        "notes": "Updated — please add extra water"
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  **Constraint:** Order must be `pending`. All fields optional.
+
+  ⚠️ Old stock restored before new stock reserved.

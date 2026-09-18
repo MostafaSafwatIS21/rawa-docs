@@ -1,0 +1,28 @@
+info:
+  name: Cancel order
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/orders/{{orderId}}/cancel"
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer / Vendor / Admin
+
+  | Status | Customer | Vendor | Admin |
+  |--------|----------|--------|-------|
+  | pending | ✅ | ✅ | ✅ |
+  | accepted | ❌ | ✅ | ✅ |
+  | preparing | ❌ | ❌ | ✅ |
+  | out_for_delivery | ❌ | ❌ | ❌ |

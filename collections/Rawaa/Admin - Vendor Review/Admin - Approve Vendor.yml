@@ -1,0 +1,22 @@
+info:
+  name: Admin - Approve Vendor
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/admin/vendors/:id/approve"
+  params:
+    - name: id
+      value: "{{vendorId}}"
+      type: path
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

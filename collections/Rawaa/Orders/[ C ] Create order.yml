@@ -1,0 +1,57 @@
+info:
+  name: "[ C ] Create order"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/orders"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "items": [
+              {
+                  "productId": "4d14f0fe-0ffe-4031-b8d3-0deffa8f5930",
+                  "quantity": 4
+              },
+              {
+                  "productId": "b4fbd45a-ab81-408b-ac5c-44802610594d",
+                  "quantity": 2
+              }
+          ],
+          "addressId": "d1b4a7fd-0675-41b8-b4b8-c235a0673f97",
+          "notes": "Please deliver before noon"
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var res = res.getBody();
+        if (res && res.id) {
+            bru.setEnvVar('orderId', res.id);
+            console.log('✅ orderId saved:', res.id);
+        } else {
+            console.log('⚠️ No order id in response:', JSON.stringify(res));
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  **Auto-saves:** `orderId` env variable from the response.
+
+  **Replace** `<vendorProductId>` with a real VendorProduct UUID and `<addressId>` with an address that belongs to the logged-in customer.

@@ -1,0 +1,34 @@
+info:
+  name: "[ A ] Get all orders (Admin)"
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: "{{base_url}}/orders/admin/all?page=1&limit=20"
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "20"
+      type: query
+    - name: status
+      value: PENDING
+      type: query
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Admin / Super Admin
+
+  Retrieves all orders across all vendors.

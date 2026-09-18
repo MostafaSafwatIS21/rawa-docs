@@ -1,0 +1,46 @@
+info:
+  name: "[Webhook] Tap Payment Status (simulate)"
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/webhooks/tap/payment"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: hashstring
+      value: REPLACE_WITH_VALID_HMAC_SHA256
+      description: HMAC-SHA256 of raw body using TAP_WEBHOOK_SECRET. Skip signature check in dev by setting TAP_WEBHOOK_SECRET to match this.
+  body:
+    type: json
+    data: |-
+      {
+        "id": "{{tapChargeId}}",
+        "status": "CAPTURED",
+        "amount": 127,
+        "currency": "SAR",
+        "source": {
+          "payment_method": "MADA",
+          "type": "card"
+        },
+        "metadata": {
+          "orderId": "{{orderId}}",
+          "vendorId": "{{vendorId}}"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Public** — Tap calls this directly.
+
+  Simulates a Tap payment webhook. Change `status` to `CAPTURED`, `FAILED`, or `REFUNDED` to test each flow.
+
+  ⚠️ The `hashstring` header must be a valid HMAC-SHA256 signature. For local testing, temporarily skip signature verification by commenting out `verifyWebhookSignature()` in `WebhooksController`.

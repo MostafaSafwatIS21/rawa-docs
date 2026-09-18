@@ -1,0 +1,44 @@
+info:
+  name: "[Customer] Initiate Payment"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/payments/initiate"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "orderId": "{{orderId}}"
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var res = res.getBody();
+        if (res.tapChargeId) bru.setEnvVar('tapChargeId', res.tapChargeId);
+        if (res.paymentUrl) console.log('✅ Payment URL:', res.paymentUrl);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer
+
+  Initiates a Tap charge for an unpaid order. Returns `paymentUrl` — redirect the customer to this URL to complete payment.
+
+  **Pre-conditions:**
+  - Order must be `unpaid` and `pending`
+  - Vendor must have `tapStatus = ACTIVE`

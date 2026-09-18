@@ -1,0 +1,28 @@
+info:
+  name: Admin Broadcast
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/notifications/broadcast"
+  body:
+    type: json
+    data: |-
+      {
+        "targetRole": "all",
+        "title": "📢 إعلان هام",
+        "body": "هناك صيانة للنظام الليلة."
+      }
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: Admin only. Broadcast to `customer`, `vendor`, or `all`.

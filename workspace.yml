@@ -1,0 +1,12 @@
+opencollection: 1.0.0
+info:
+  name: "Rawa-Production"
+  type: workspace
+
+collections:
+  - name: "Rawaa"
+    path: "collections/Rawaa"
+
+specs:
+
+docs: ''

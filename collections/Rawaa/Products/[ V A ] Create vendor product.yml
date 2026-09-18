@@ -1,0 +1,30 @@
+info:
+  name: "[ V A ] Create vendor product"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/products"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "catalogProductId": "965ecaa0-7c2a-4f4b-b6a9-8e8cdc4feb41",
+        "price": "55.5",
+        "stockQuantity": "50",
+        "discountPercentage": "30"
+      }
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

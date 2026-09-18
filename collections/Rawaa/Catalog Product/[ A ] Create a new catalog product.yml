@@ -1,0 +1,47 @@
+info:
+  name: "[ A ] Create a new catalog product"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/catalog-product"
+  headers:
+    - name: Content-Type
+      value: multipart/form-data
+  body:
+    type: multipart-form
+    data:
+      - name: brandId
+        type: text
+        value: 9f4bea96-3615-401a-99f4-34ba491dbd9b
+        description: "(Required) "
+      - name: packageSizeId
+        type: text
+        value: a29c13d6-0bd0-421e-9071-c89f76c5815c
+        description: "(Required) "
+      - name: name
+        type: text
+        value: Rawaa
+        description: "(Required) "
+      - name: image
+        type: file
+        value:
+          - postman-cloud:///1f17d48f-d38e-4e40-aa23-3a4f35f21d09
+        description: "(Required) "
+      - name: description
+        type: text
+        value: Rawaa Water 600ml
+      - name: volume
+        type: text
+        value: "600"
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,23 @@
+info:
+  name: Get vendor product by ID
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/products/:id"
+  params:
+    - name: id
+      value: 0f3595da-ec2b-4fe0-a215-689fe2df6c8d
+      type: path
+      description: "(Required) "
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

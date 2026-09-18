@@ -1,0 +1,30 @@
+info:
+  name: "[Admin] Generate Settlement Batch"
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/settlements/generate"
+  headers:
+    - name: Authorization
+      value: Bearer {{admin_token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "periodFrom": "2025-07-01",
+        "periodTo": "2025-07-31"
+      }
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

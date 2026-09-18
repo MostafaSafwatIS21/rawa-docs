@@ -1,0 +1,23 @@
+info:
+  name: Delete address
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/addresses/{{addressId}}"
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Deletes the specified address. If the deleted address was default, the next available address is automatically set as the new default.

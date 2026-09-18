@@ -1,0 +1,25 @@
+info:
+  name: "[ V ] Pause Subscription"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/vendor/subscriptions/{{subscriptionId}}/pause"
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Vendor only
+
+  Pauses the subscription on behalf of the vendor. Same effect as the customer pause endpoint.
+
+  Emits `subscription.paused` event with `changedBy = 'vendor'`.

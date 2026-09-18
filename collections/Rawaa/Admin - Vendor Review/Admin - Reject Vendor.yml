@@ -1,0 +1,31 @@
+info:
+  name: Admin - Reject Vendor
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: "{{base_url}}/admin/vendors/:id/reject"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: id
+      value: "{{vendorId}}"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "reason": "Invalid CR document"
+      }
+  auth:
+    type: bearer
+    token: "{{adminToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

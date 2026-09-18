@@ -1,0 +1,45 @@
+info:
+  name: Update vendor profile
+  type: http
+  seq: 6
+
+http:
+  method: PATCH
+  url: "{{base_url}}/vendors/:id"
+  headers:
+    - name: Content-Type
+      value: multipart/form-data
+  params:
+    - name: id
+      value: <string>
+      type: path
+      description: "(Required) "
+  body:
+    type: multipart-form
+    data:
+      - name: storeName
+        type: text
+        value: <string>
+      - name: description
+        type: text
+        value: <string>
+      - name: address
+        type: text
+        value: <string>
+      - name: latitude
+        type: text
+        value: <double>
+      - name: longitude
+        type: text
+        value: <double>
+      - name: logo
+        type: file
+        value: []
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

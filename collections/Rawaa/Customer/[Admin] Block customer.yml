@@ -1,0 +1,23 @@
+info:
+  name: "[Admin] Block customer"
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{base_url}}/customers/:id/block"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  params:
+    - name: id
+      value: "1"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

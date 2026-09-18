@@ -1,0 +1,31 @@
+info:
+  name: "[ C ] Skip Next Delivery"
+  type: http
+  seq: 8
+
+http:
+  method: PATCH
+  url: "{{base_url}}/subscriptions/{{subscriptionId}}/skip-next"
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Skips the **next** scheduled delivery cycle without pausing the entire subscription.
+
+  - Creates/updates the next occurrence as `skipped` (no order is generated)
+  - Advances `nextRunDate` to the cycle after the skipped one
+  - Subscription remains **active** — future deliveries continue normally
+
+  Use this for the "skip this week's delivery" use case.
+
+  ❌ Throws 400 if subscription is not active.

@@ -1,0 +1,23 @@
+info:
+  name: "[Admin] Unblock customer"
+  type: http
+  seq: 9
+
+http:
+  method: PATCH
+  url: "{{base_url}}/customers/:id/unblock"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  params:
+    - name: id
+      value: "1"
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

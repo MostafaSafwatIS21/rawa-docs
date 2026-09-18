@@ -1,0 +1,44 @@
+info:
+  name: Offers
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/offer-products?page=1&limit=5&search=water&city=Jeddah&latitude=30.2&longitude=30.2&sortBy=salesCount&sortOrder=DESC"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "5"
+      type: query
+    - name: search
+      value: water
+      type: query
+    - name: city
+      value: Jeddah
+      type: query
+    - name: latitude
+      value: "30.2"
+      type: query
+    - name: longitude
+      value: "30.2"
+      type: query
+    - name: sortBy
+      value: salesCount
+      type: query
+    - name: sortOrder
+      value: DESC
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

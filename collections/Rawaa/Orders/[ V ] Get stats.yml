@@ -1,0 +1,29 @@
+info:
+  name: "[ V ] Get stats"
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{base_url}}/orders/stats?range=daily"
+  params:
+    - name: range
+      value: daily
+      type: query
+  auth:
+    type: bearer
+    token: "{{vendorToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Vendor only
+
+  `range`: `daily` (last 24h) or `weekly` (last 7 days).
+
+  Returns `totalOrders`, `totalRevenue`, and `byStatus` breakdown.

@@ -1,0 +1,7 @@
+info:
+  name: 🔁 Subscriptions (Admin)
+  type: folder
+  seq: 16
+
+request:
+  auth: inherit

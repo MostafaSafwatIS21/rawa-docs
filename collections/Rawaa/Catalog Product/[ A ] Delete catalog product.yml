@@ -1,0 +1,21 @@
+info:
+  name: "[ A ] Delete catalog product"
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/catalog-product/:id"
+  params:
+    - name: id
+      value: <string>
+      type: path
+      description: "(Required) "
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

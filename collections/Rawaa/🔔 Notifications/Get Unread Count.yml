@@ -1,0 +1,18 @@
+info:
+  name: Get Unread Count
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/notifications/unread-count"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: Get the count of unread notifications (useful for bell icon badges).

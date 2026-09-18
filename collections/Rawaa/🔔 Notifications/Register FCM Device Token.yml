@@ -1,0 +1,27 @@
+info:
+  name: Register FCM Device Token
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{base_url}}/notifications/device-tokens"
+  body:
+    type: json
+    data: |-
+      {
+        "token": "fcm-token-xyz-123",
+        "platform": "web"
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "Register a Firebase Cloud Messaging token for push notifications. Platforms: `android`, `ios`, `web`"

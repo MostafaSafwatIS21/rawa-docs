@@ -1,0 +1,7 @@
+info:
+  name: Catalog Product
+  type: folder
+  seq: 6
+
+request:
+  auth: inherit

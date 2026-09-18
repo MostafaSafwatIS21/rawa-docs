@@ -1,0 +1,35 @@
+info:
+  name: "[ V A ] Update product"
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/products/:id"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: id
+      value: <string>
+      type: path
+      description: "(Required) "
+  body:
+    type: json
+    data: |-
+      {
+        "catalogProductId": "<string>",
+        "price": "<string>",
+        "stockQuantity": "<number>",
+        "discountPercentage": "<string>"
+      }
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
