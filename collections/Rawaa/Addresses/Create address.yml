@@ -30,7 +30,7 @@ runtime:
       code: |-
         var res = res.getBody();
         if (res && res.id) {
-            bru.setEnvVar('addressId', res.id);
+            bru.setVar('addressId', res.id);
             console.log('✅ addressId saved:', res.id);
         } else {
             console.log('⚠️ No address id in response');

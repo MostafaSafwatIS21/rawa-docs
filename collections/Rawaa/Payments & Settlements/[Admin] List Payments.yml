@@ -31,7 +31,7 @@ runtime:
       code: |-
         var res = res.getBody();
         if (Array.isArray(res) && res.length > 0) {
-          bru.setEnvVar('paymentId', res[0].id);
+          bru.setVar('paymentId', res[0].id);
           console.log('✅ paymentId saved:', res[0].id);
         }
 

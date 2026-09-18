@@ -66,17 +66,17 @@ runtime:
         var role = res.user && res.user.role ? res.user.role : null;
 
         // Always store as the active bearer token
-        bru.setEnvVar('bearerToken', token);
+        bru.setVar('bearerToken', token);
 
         // Also store by role
         if (role === 'admin') {
-            bru.setEnvVar('adminToken', token);
+            bru.setVar('adminToken', token);
             console.log('✅ adminToken saved');
         } else if (role === 'vendor') {
-            bru.setEnvVar('vendorToken', token);
+            bru.setVar('vendorToken', token);
             console.log('✅ vendorToken saved');
         } else if (role === 'customer') {
-            bru.setEnvVar('customerToken', token);
+            bru.setVar('customerToken', token);
             console.log('✅ customerToken saved');
         } else {
             console.log('⚠️ Unknown role:', role, '- only bearerToken was set');
@@ -84,7 +84,7 @@ runtime:
 
         // Also store refresh token if present
         if (res.refreshToken) {
-            bru.setEnvVar('refreshToken', res.refreshToken);
+            bru.setVar('refreshToken', res.refreshToken);
         }
 
 settings:

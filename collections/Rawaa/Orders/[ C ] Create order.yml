@@ -36,7 +36,7 @@ runtime:
       code: |-
         var res = res.getBody();
         if (res && res.id) {
-            bru.setEnvVar('orderId', res.id);
+            bru.setVar('orderId', res.id);
             console.log('✅ orderId saved:', res.id);
         } else {
             console.log('⚠️ No order id in response:', JSON.stringify(res));

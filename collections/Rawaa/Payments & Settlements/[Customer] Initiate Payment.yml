@@ -24,7 +24,7 @@ runtime:
     - type: after-response
       code: |-
         var res = res.getBody();
-        if (res.tapChargeId) bru.setEnvVar('tapChargeId', res.tapChargeId);
+        if (res.tapChargeId) bru.setVar('tapChargeId', res.tapChargeId);
         if (res.paymentUrl) console.log('✅ Payment URL:', res.paymentUrl);
 
 settings:
