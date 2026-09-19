@@ -11,6 +11,6 @@ variables:
   - name: domain_url
     value: ""
   - name: customerToken
-    value: ""
+    value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZmM3ZjU4My05Yjk4LTQxZmQtYWUzNy1jNTA4MjExZWYzZDkiLCJlbWFpbCI6Im5hZGEuYWxzaGFtbWFyaUByYXdhYS12ZW5kb3JzLmV4YW1wbGUuY29tIiwicGhvbmUiOiIrOTY2NTAwMDAwMTA3Iiwicm9sZSI6InZlbmRvciIsInZlbmRvcklkIjoiNjE1YjQzODAtNzk5NC00MWZjLTg2ODgtY2IyZDU2N2ZjYWVmIiwiYXBwcm92YWxTdGF0dXMiOiJhcHByb3ZlZCIsImlhdCI6MTc4OTc0MzQ1NCwiZXhwIjoxNzkyMzM1NDU0fQ.0rH-dFPLdBzN4mS01mLcxPc4w_2C1E7i96OoOxaO0ns
   - name: addressId
     value: ""

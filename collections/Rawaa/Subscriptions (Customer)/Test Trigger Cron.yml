@@ -1,11 +1,11 @@
 info:
-  name: "[ C ] Create Subscription"
+  name: Test Trigger Cron
   type: http
-  seq: 1
+  seq: 9
 
 http:
   method: POST
-  url: "{{base_url}}/subscriptions"
+  url: "{{base_url}}/subscriptions/test-trigger-cron"
   headers:
     - name: Content-Type
       value: application/json
@@ -16,9 +16,9 @@ http:
         "productId": "{{vendorProductId}}",
         "quantity": 2,
         "addressId": "{{addressId}}",
-        "startDate": "2026-08-12",
-        "frequency": "custom_days",     //weekly, biweekly, monthly, custom_days
-        "customIntervalDays":"10", // this will be require if frequency = custom_days
+        "startDate": "2026-09-19",
+        "frequency": "weekly",     //weekly, biweekly, monthly, custom_days
+      //   "customIntervalDays":"10", // this will be require if frequency = custom_days
         "autoPay": true
       }
   auth:

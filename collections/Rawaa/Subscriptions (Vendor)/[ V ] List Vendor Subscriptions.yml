@@ -5,12 +5,11 @@ info:
 
 http:
   method: GET
-  url: "{{base_url}}/vendor/subscriptions?page=1&limit=10"
+  url: "{{base_url}}/vendor/subscriptions?status=active&page=1&limit=10"
   params:
     - name: status
       value: active
       type: query
-      disabled: true
     - name: page
       value: "1"
       type: query

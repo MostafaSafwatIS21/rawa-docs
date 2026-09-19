@@ -1,0 +1,50 @@
+info:
+  name: "[ C ] Create Subscription"
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/subscriptions"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "productId": "{{vendorProductId}}",
+        "quantity": 2,
+        "addressId": "{{addressId}}",
+        "startDate": "2026-09-19",
+        "frequency": "weekly",     //weekly, biweekly, monthly, custom_days
+      //   "customIntervalDays":"10", // this will be require if frequency = custom_days
+        "autoPay": false
+      }
+  auth:
+    type: bearer
+    token: "{{customerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: |-
+  **Role:** Customer only
+
+  Creates a new recurring delivery subscription.
+
+  **Fields:**
+  - `productId` — VendorProduct UUID (vendor is resolved server-side, never sent by client)
+  - `quantity` — integer ≥ 1
+  - `addressId` — must belong to the authenticated customer
+  - `startDate` — first delivery date, YYYY-MM-DD, must be today or future
+  - `frequency` — one of: `weekly` | `biweekly` | `monthly` | `custom_days`
+  - `customIntervalDays` — **required** when `frequency = custom_days`, integer ≥ 1
+  - `autoPay` — `true` = charge saved Tap card automatically each cycle; `false` = customer pays manually
+  - `tapCardToken` — **required** when `autoPay = true` (opaque Tap card reference, not raw card data)
+
+  **nextRunDate** is set to `startDate` on creation.

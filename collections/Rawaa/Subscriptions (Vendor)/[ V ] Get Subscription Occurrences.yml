@@ -5,20 +5,17 @@ info:
 
 http:
   method: GET
-  url: "{{base_url}}/vendor/subscriptions/{{subscriptionId}}/occurrences?page=1&limit=10"
+  url: "{{base_url}}/vendor/subscriptions/{{subscriptionId}}/occurrences?status=awaiting_payment&from=2026-08-01&to=2026-09-30&page=1&limit=10"
   params:
     - name: status
-      value: order_created
+      value: awaiting_payment
       type: query
-      disabled: true
     - name: from
       value: 2026-08-01
       type: query
-      disabled: true
     - name: to
-      value: 2026-08-31
+      value: 2026-09-30
       type: query
-      disabled: true
     - name: page
       value: "1"
       type: query

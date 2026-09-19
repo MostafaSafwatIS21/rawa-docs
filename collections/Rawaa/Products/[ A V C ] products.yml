@@ -36,7 +36,7 @@ http:
       type: query
       disabled: true
     - name: vendorId
-      value: a37bf551-d3fd-4cbd-ae12-816c28caa557
+      value: cf4dd533-ff4f-4e98-b77a-1277331ff3e6
       type: query
       disabled: true
   auth:

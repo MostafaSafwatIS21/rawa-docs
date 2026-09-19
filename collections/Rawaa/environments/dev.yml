@@ -9,9 +9,9 @@ variables:
   - name: vendorToken
     value: ""
   - name: customerToken
-    value: ""
+    value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhMzdiZjU1MS1kM2ZkLTRjYmQtYWUxMi04MTZjMjhjYWE1NTciLCJlbWFpbCI6Im5hZGEuYWxzaGFtbWFyaUByYXdhYS12ZW5kb3JzLmV4YW1wbGUuY29tIiwicGhvbmUiOiIrOTY2NTAwMDAwMTA3Iiwicm9sZSI6InZlbmRvciIsInZlbmRvcklkIjoiY2Y0ZGQ1MzMtZmY0Zi00ZTk4LWI3N2EtMTI3NzMzMWZmM2U2IiwiYXBwcm92YWxTdGF0dXMiOiJhcHByb3ZlZCIsImlhdCI6MTc4OTc0NDA4MywiZXhwIjoxNzkyMzM2MDgzfQ.LG7t_PR42K3J3RlpfeqimBjqBg3LxzQodvq8NsH_wBQ
   - name: addressId
-    value: ""
+    value: d1b4a7fd-0675-41b8-b4b8-c235a0673f97
   - name: domain_url
     value: ""
   - name: registrationToken

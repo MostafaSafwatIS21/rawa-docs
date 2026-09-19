@@ -29,19 +29,19 @@ http:
       //     "password":"Rawaa@12345"
       // }
       // --------------------- Vendor Accounts ---------------------
-      {
-          "identifier":"nada.alshammari@rawaa-vendors.example.com",
-          "password":"Rawaa@12345"
-      }
+      // {
+      //     "identifier":"nada.alshammari@rawaa-vendors.example.com",
+      //     "password":"Rawaa@12345"
+      // }
       // {
       //     "identifier":"mo@gmail.com",
       //     "password":"Pass@12345"
       // }
       // -----------------------Customer Accounts _________
-      // {
-      //     "identifier":"omar.fahad@rawaa-customers.example.com",
-      //     "password":"Rawaa@12345"
-      // }
+      {
+          "identifier":"omar.fahad@rawaa-customers.example.com",
+          "password":"Rawaa@12345"
+      }
       // ----------------------- Admin Account -----------------------
       // {
       //     "identifier": "super.admin@rawa.com",
@@ -64,6 +64,7 @@ runtime:
 
         var token = data.accessToken;
         var role = data.user && data.user.role ? data.user.role : null;
+        console.log(role)
 
         // Always store as the active bearer token
         bru.setVar('bearerToken', token);

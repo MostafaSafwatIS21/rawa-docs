@@ -8,7 +8,7 @@ http:
   url: "{{base_url}}/vendors/:id"
   params:
     - name: id
-      value: 1dbf5a73-a73b-451b-b312-4c887ba1e312
+      value: cf4dd533-ff4f-4e98-b77a-1277331ff3e6
       type: path
       description: "(Required) "
   auth: inherit

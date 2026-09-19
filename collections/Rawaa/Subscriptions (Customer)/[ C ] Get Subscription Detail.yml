@@ -5,10 +5,10 @@ info:
 
 http:
   method: GET
-  url: "{{base_url}}/subscriptions/{{subscriptionId}}?occPage=2&occLimit=10"
+  url: "{{base_url}}/subscriptions/{{subscriptionId}}?occPage=1&occLimit=10"
   params:
     - name: occPage
-      value: "2"
+      value: "1"
       type: query
     - name: occLimit
       value: "10"

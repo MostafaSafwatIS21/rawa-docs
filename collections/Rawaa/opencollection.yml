@@ -2,6 +2,17 @@ opencollection: 1.0.0
 
 info:
   name: Rawaa
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
 
 request:
   auth:
@@ -31,9 +42,9 @@ request:
     - name: vendorId
       value: ""
     - name: subscriptionId
-      value: ""
+      value: 1247fa07-722f-4fb5-b6ed-8e4f9e71e40c
     - name: vendorProductId
-      value: ""
+      value: 81c712f6-cbfb-410c-beaa-e2d6a61971ed
 bundled: false
 extensions:
   bruno:
