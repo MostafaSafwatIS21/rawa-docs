@@ -1,0 +1,22 @@
+info:
+  name: Confirm Second Identifier OTP
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/account/identifiers/confirm"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: Bearer {{bearerToken}}
+  body:
+    type: json
+    data: |+
+      {
+        "type": "phone",
+        "value": "+966500000000",
+        "code": "123456"
+      }
+  auth: inherit

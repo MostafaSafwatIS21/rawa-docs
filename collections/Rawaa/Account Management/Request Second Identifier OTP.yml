@@ -1,0 +1,21 @@
+info:
+  name: Request Second Identifier OTP
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/account/identifiers/request"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: Bearer {{bearerToken}}
+  body:
+    type: json
+    data: |+
+      {
+        "type": "phone",
+        "value": "+966500000000"
+      }
+  auth: inherit

@@ -1,0 +1,21 @@
+info:
+  name: Schedule Account Deletion
+  type: http
+  seq: 1
+
+http:
+  method: DELETE
+  url: "{{base_url}}/account"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: Bearer {{bearerToken}}
+  body:
+    type: json
+    data: |+
+      {
+        "password": "Rawaa@12345",
+        "reason": "I no longer need this account"
+      }
+  auth: inherit
