@@ -11,19 +11,19 @@ http:
       value: application/json
   body:
     type: json
-    data: |-
+    data: |
       {
           "items": [
               {
-                  "productId": "4d14f0fe-0ffe-4031-b8d3-0deffa8f5930",
+                  "vendorProductId": "81c712f6-cbfb-410c-beaa-e2d6a61971ed",
                   "quantity": 4
               },
               {
-                  "productId": "b4fbd45a-ab81-408b-ac5c-44802610594d",
+                  "vendorProductId": "4d14f0fe-0ffe-4031-b8d3-0deffa8f5930",
                   "quantity": 2
               }
           ],
-          "addressId": "d1b4a7fd-0675-41b8-b4b8-c235a0673f97",
+          "addressId": "{{addressId}}",
           "notes": "Please deliver before noon"
       }
   auth:

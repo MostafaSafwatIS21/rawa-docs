@@ -15,11 +15,11 @@ http:
       {
         "items": [
           {
-            "productId": "<vendorProductId>",
+            "vendorProductId": "b4fbd45a-ab81-408b-ac5c-44802610594d",
             "quantity": 3
           }
         ],
-        "notes": "Updated — please add extra water"
+        "notes": "Updated — please add extra water and derive it at home"
       }
   auth:
     type: bearer

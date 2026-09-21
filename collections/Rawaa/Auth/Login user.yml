@@ -12,10 +12,10 @@ http:
   body:
     type: json
     data: |+
-      // {
-      //   "identifier": "0tarek44tarek@gmail.com",
-      //   "password": "Pass1234"
-      // }
+      {
+        "identifier": "00tarek404@gmail.com",
+        "password": "Pass1234"
+      }
       // {
       //   "identifier": "mohamed135hamdy@gmail.com",
       //   "password": "Pass12345"
@@ -38,17 +38,15 @@ http:
       //     "password":"Pass@12345"
       // }
       // -----------------------Customer Accounts _________
-      {
-          "identifier":"omar.fahad@rawaa-customers.example.com",
-          "password":"Rawaa@12345"
-      }
+      // {
+      //     "identifier":"omar.fahad@rawaa-customers.example.com",
+      //     "password":"Rawaa@12345"
+      // }
       // ----------------------- Admin Account -----------------------
       // {
       //     "identifier": "super.admin@rawa.com",
       //     "password": "Rawaa@12345"
       // }
-
-
 
 
 
@@ -70,7 +68,7 @@ runtime:
         bru.setVar('bearerToken', token);
 
         // Also store by role
-        if (role === 'admin') {
+        if (role === 'admin' || role === 'super_admin') {
             bru.setVar('adminToken', token);
             console.log('✅ adminToken saved');
         } else if (role === 'vendor') {

@@ -5,10 +5,10 @@ info:
 
 http:
   method: GET
-  url: "{{base_url}}/notifications?page=1&limit=20"
+  url: "{{base_url}}/notifications?page=2&limit=20"
   params:
     - name: page
-      value: "1"
+      value: "2"
       type: query
     - name: limit
       value: "20"

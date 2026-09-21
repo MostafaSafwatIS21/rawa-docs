@@ -24,7 +24,7 @@ request:
     - name: bearerToken
       value: ""
     - name: adminToken
-      value: ""
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MmE3ZGU5Ni0wMjYwLTQzMDMtYTdlYy1kOGM0NjcwZTRhZDQiLCJlbWFpbCI6InN1cGVyLmFkbWluQHJhd2EuY29tIiwicGhvbmUiOiIrOTY2NTAwMDAwMDAwIiwicm9sZSI6InN1cGVyX2FkbWluIiwiaWF0IjoxNzg5ODg4NDI3LCJleHAiOjE3OTI0ODA0Mjd9.HS1HNSEqaHKm97VGSZYUt0OhRh2hA5ucOrbAjbGZIWo
     - name: vendorToken
       value: ""
     - name: customerToken
@@ -44,7 +44,7 @@ request:
     - name: subscriptionId
       value: 1247fa07-722f-4fb5-b6ed-8e4f9e71e40c
     - name: vendorProductId
-      value: 81c712f6-cbfb-410c-beaa-e2d6a61971ed
+      value: ec51ca1f-b685-40c1-8dc5-7ffd08443d66
 bundled: false
 extensions:
   bruno:

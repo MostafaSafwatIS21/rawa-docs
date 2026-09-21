@@ -7,18 +7,18 @@ http:
   method: GET
   url: "{{base_url}}/orders?page=1&limit=20"
   params:
-    - name: status
-      value: pending
-      type: query
-      disabled: true
     - name: page
       value: "1"
       type: query
     - name: limit
       value: "20"
       type: query
+    - name: status
+      value: pending
+      type: query
+      disabled: true
     - name: ""
-      value: 81c712f6-cbfb-410c-beaa-e2d6a61971ed
+      value: ec51ca1f-b685-40c1-8dc5-7ffd08443d66
       type: query
       disabled: true
   auth:

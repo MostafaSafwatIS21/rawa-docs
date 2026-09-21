@@ -13,13 +13,9 @@ http:
     type: json
     data: |-
       {
-        "productId": "{{vendorProductId}}",
-        "quantity": 2,
-        "addressId": "{{addressId}}",
-        "startDate": "2026-09-19",
-        "frequency": "weekly",     //weekly, biweekly, monthly, custom_days
-      //   "customIntervalDays":"10", // this will be require if frequency = custom_days
-        "autoPay": true
+        
+        
+        
       }
   auth:
     type: bearer
