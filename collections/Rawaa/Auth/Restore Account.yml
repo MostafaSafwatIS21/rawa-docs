@@ -1,0 +1,19 @@
+info:
+  name: Restore Account
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/auth/restore"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |+
+      {
+        "identifier": "00tarek404@gmail.com",
+        "password": "Pass1234"
+      }
+  auth: inherit
