@@ -8,6 +8,30 @@ http:
   url: "{{base_url}}/catalog-product"
   params:
     - name: search
+      value: m
+      type: query
+      disabled: true
+    - name: brandId
+      value: ad8951f6-c074-4044-9da3-9a0e926715cc
+      type: query
+      disabled: true
+    - name: minVolume
+      value: "400"
+      type: query
+      disabled: true
+    - name: maxVolume
+      value: "43"
+      type: query
+      disabled: true
+    - name: sortBy
+      value: name
+      type: query
+      disabled: true
+    - name: sortOrder
+      value: ASC
+      type: query
+      disabled: true
+    - name: search
       value: NoMa
       type: query
       disabled: true

@@ -11,15 +11,15 @@ http:
       value: application/json
   body:
     type: json
-    data: |-
+    data: |
       // {
       //   "identifier": "mostafa.safwat.is.fcai@gmail.com",
       //   "code": "340087"
       // }
 
       {
-        "identifier": "mostafa.is1242003@gmail.com",
-        "code": "811726"
+        "identifier": "+201004875835",
+        "code": "287087"
       }
   auth: inherit
 
