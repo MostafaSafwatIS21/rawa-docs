@@ -13,9 +13,18 @@ http:
       value: Bearer {{bearerToken}}
   body:
     type: json
-    data: |+
+    data: |
       {
         "password": "Rawaa@12345",
         "reason": "I no longer need this account"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

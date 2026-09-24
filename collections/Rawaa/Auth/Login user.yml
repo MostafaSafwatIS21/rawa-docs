@@ -11,11 +11,11 @@ http:
       value: application/json
   body:
     type: json
-    data: |+
-      {
-        "identifier": "00tarek404@gmail.com",
-        "password": "Pass1234"
-      }
+    data: |
+      // {
+      //   "identifier": "00tarek404@gmail.com",
+      //   "password": "Pass1234"
+      // }
       // {
       //   "identifier": "mohamed135hamdy@gmail.com",
       //   "password": "Pass12345"
@@ -47,10 +47,10 @@ http:
       //     "identifier": "super.admin@rawa.com",
       //     "password": "Rawaa@12345"
       // }
-
-
-
-
+      {
+         "identifier": "+201144265756",
+          "password": "Rawaa@12345"
+      }
   auth: inherit
 
 runtime:
